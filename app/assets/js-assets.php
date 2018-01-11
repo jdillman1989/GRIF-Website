@@ -7,4 +7,4 @@ load_js( '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(
 	'handle' => 'jquery'
 ) );
 
-load_js( $default_url . '/application.js' );
+load_js( $default_url . '/application.min.js' );

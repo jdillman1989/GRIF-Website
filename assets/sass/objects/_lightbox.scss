@@ -1,0 +1,59 @@
+.overlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%; 
+	display: none; 
+	z-index: 15;
+	
+	.overlay-animation-grid{
+		position: absolute;
+		top:0;
+		left: 0;
+		width: 100%;
+		height:100%;
+		@extend %clearfix;
+		
+		.overlay-animation{
+			background-color: rgba(28, 29, 33, 0.6);
+		    width: 10%;
+		    height: 100vh; 
+		    float: left;
+		}
+	}
+	
+	.lightbox-container{
+		background-color: #fff;
+		width: 85%;
+		margin: 13px auto; 
+		padding: 2.5vw;
+		overflow: scroll;
+		position: relative;
+		display: none;
+		z-index: 20;
+		
+		.lightbox-content{
+			.iframe-container{
+				display: block;
+			}
+			iframe{
+				margin: 0 auto;
+				width: 100%;
+				height: 70vh; 
+			}
+		}  
+	}
+
+	.close{
+		position: fixed;
+		right: 3%;
+		top: 4%;
+		width: 30px; 
+		cursor: pointer;
+	}
+}
+
+.iframe-container{
+	display: none;
+}

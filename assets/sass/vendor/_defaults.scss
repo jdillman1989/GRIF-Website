@@ -1,0 +1,29 @@
+*{
+  box-sizing: border-box;
+}
+
+.animate{
+	transition: all 0.3s ease;
+}
+
+svg{
+	width: auto;
+	height: 100%; 
+}
+
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body{
+	max-width: 1600px;
+	position: relative;
+	margin: 0 auto;
+	box-shadow: 2px 2px 13px -3px rgba(0, 0, 0, 0.2);
+	font-family: $body;
+}
+
+.disabled{
+	display: none !important;
+}

@@ -1,0 +1,287 @@
+main.homepage{
+	@include breakpoint($breakPoint3) {
+		padding-top: 5px; 
+	}
+	@include breakpoint($breakPoint4) {
+		padding-top: 0; 
+	}
+}
+
+.home-intro{
+	width: 100%;
+	.home-intro-container{
+		background-size: 85%;
+		position: relative;
+		height: 50vw;
+		max-height: 790px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include breakpoint($breakPoint4) {
+			background-size: cover; 
+			align-items: flex-end;
+			height: 80vw; 
+		}
+		.home-intro-logo{
+			position: absolute;
+			top: 14%;
+			left: 9%;
+			@include breakpoint($breakPoint4) {
+				top: 20px;
+				left: 20px; 
+			}
+			img{
+				width: 70px;
+				height: auto;
+				@include breakpoint($breakPoint3) {
+					width: 40px; 
+				}
+			}
+		}
+		.home-intro-heading{
+			width: 100%; 
+			img{
+				height: 50vw;
+				max-height: 730px;
+				width: auto;
+				margin: 0 auto;
+				display: block; 
+				@include breakpoint($breakPoint4) {
+					height: 70vw; 
+				}
+			}
+		}
+		.home-intro-video{
+			position: absolute;
+			bottom: 17%;
+			text-align: center;
+			width: 100%;
+			@include breakpoint($breakPoint3) {
+				bottom: 14%;  
+			} 
+			@include breakpoint($breakPoint4) {
+				bottom: 10px; 
+			}
+			a{
+				font-size: 20px;
+				color: #fff;
+				@include breakpoint($breakPoint3) {
+					font-size: 17px;  
+				} 
+			}
+		}
+	}
+}
+
+.home-resource-topics{
+	width: 75%;
+	margin: 0 auto;
+	background-color: $primary;
+	padding: 50px 0;
+	margin-top: -15px;
+	margin-bottom: 130px; 
+	position: relative;
+	z-index: 3;
+	@include breakpoint($breakPoint3) {
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 50px 15px;
+	}
+	.home-resource-topics-container{
+		color: #fff;
+		.home-resource-topics-header{
+			text-align: center;
+			margin-bottom: 25px; 
+		}
+		.home-topics-list{
+			margin-top: 30px;
+			.topic-filters-form{
+				.topic-filters-buttons{
+					margin-top: 60px;
+					text-align: center;
+					@include breakpoint($breakPoint3) {
+						margin-top: 30px;
+					}
+					button.mfts-button.square, a.mfts-button.square{
+						width: 200px;
+						margin: 0 22px;
+						@include breakpoint($breakPoint3) {
+							margin: 15px;
+						}  
+					}
+				}
+			}
+		}
+	}
+}
+
+.featured-post{
+	padding: 40px 0;
+	position: relative;
+	@include breakpoint($breakPoint2) {
+		padding: 50px; 
+	}
+	@include breakpoint($breakPoint3) {
+		padding: 35px; 
+	}
+	@include breakpoint($breakPoint4) {
+		padding: 0; 
+	}
+	.featured-post-container{
+		width: 85%;
+		position: relative;
+		margin: 0 auto;
+		@extend %clearfix;
+		@include breakpoint($breakPoint2) {
+			width: 100%; 
+		}
+		.featured-post-image{
+			width: 47%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 39vw;
+			max-height: 625px; 
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			@include breakpoint($breakPoint2) {
+				position: static;
+				width: 100%;
+				height: 73.5vw;
+				margin-bottom: 0;
+				max-width: 100%; 
+			}
+			@include breakpoint($breakPoint3) {
+				height: 85.5vw;
+			}
+			@include breakpoint($breakPoint4) {
+				height: 100vw; 
+			}
+		}
+		.featured-item-content{
+			width: 60%;
+			background-color: #fff;
+			float: right;
+			padding: 110px 140px 110px 180px;
+			margin-top: 110px;
+			@include breakpoint($breakPoint1) {
+				padding: 60px 40px 80px 120px;
+			}
+			@include breakpoint($breakPoint2) {
+				padding: 60px;
+				float: none;
+				width: 100%;
+				margin-top: 0;
+			}
+			@include breakpoint($breakPoint3) {
+				padding: 40px;
+				margin-top: 0;   
+			}
+		}
+	}
+	.featured-post-links{
+		width: 85%;
+		margin: 0 auto;
+		position: relative;
+		top: -39px;
+		@extend %clearfix;
+		@include breakpoint($breakPoint2) {
+			width: 100%;
+		}
+		@include breakpoint($breakPoint4) {
+			top: 0;
+			background-color: #FFF; 
+		}
+		.featured-post-links-container{
+			width: 60%;
+			float: right;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			@include breakpoint($breakPoint2) {
+				float: none;
+				width: 100%;
+				margin-bottom: 40px; 
+			}
+			a{
+				width: 40%;
+				&:first-of-type{
+					margin-right: 25px; 
+				}
+				@include breakpoint($breakPoint4) {
+					width: 85%;
+					margin-right: 0;
+					&:first-of-type{
+						margin-right: 0;
+						margin-bottom: 20px; 
+					}
+				}
+			}
+		}
+	}
+}
+
+.signup-cta{
+	background-color: #FFF;
+	padding: 30px 0;
+	@include breakpoint($breakPoint1) {
+		padding: 30px;
+	}  
+	.signup-cta-container{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include breakpoint($breakPoint1) {
+			flex-wrap: wrap;
+			text-align: center; 
+		}
+		h4{
+			color: $textPrimary;
+			margin-bottom: 0;
+			@include breakpoint($breakPoint1) {
+				margin-bottom: 30px;
+				display: block;
+				width: 100%; 
+			}
+		}
+		form{
+			@include breakpoint($breakPoint1) {
+				display: block;
+				width: 100%;
+				max-width: 700px;
+				margin: 0 auto;  
+			}
+			ul{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				@include breakpoint($breakPoint1) {
+					flex-wrap: wrap; 
+				}
+				li{
+					margin-bottom: 0;
+					@include breakpoint($breakPoint1) {
+						display: block;
+						width: 100%; 
+					}
+				}
+			}
+			input{
+				width: 260px;
+				padding: 2px 0;
+				margin: 0 20px;
+				@include breakpoint($breakPoint1) {
+					width: 100%;
+					padding: 0;
+					margin: 0;
+					margin-bottom: 15px;  
+				} 
+			}
+		}
+	}
+}

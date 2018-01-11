@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+$heading: 'Georgia', serif;
+$subheading: 'Special Elite', serif;
+$body: 'Arial', sans-serif;
+
+$fontsizeXL: 67px; // h1
+$fontsizeL: 42px; // h2
+$fontsizeM: 22px; // h3
+$fontsizeS: 18px; // h4, buttons
+$fontsizeXS: 15px; // p
+$fontsizeMargin: 20px;
+
+a{
+	color: $primary;
+	text-decoration: underline;
+}
+
+strong{
+	font-weight: 800;
+}
+
+em, i{
+	font-style: italic;
+}
+
+p, li, .p-style{
+	font-size: $fontsizeXS;
+	font-family: $body;
+	margin-bottom: $fontsizeMargin;
+	font-weight: 200;
+	line-height: 1.8em;
+}
+
+ul, ol{
+	margin-bottom: $fontsizeMargin;
+	font-size: $fontsizeXS;
+	font-family: $body;
+}
+
+ul{
+	list-style: disc inside;
+}
+
+ol{
+	list-style: decimal inside;
+}
+
+h4, .h4-style{
+	font-family: $subheading;
+	margin-bottom: $fontsizeMargin;
+	font-size: $fontsizeS;
+	font-weight: 200;
+	line-height: 1.2em;
+	color: $primary;
+}
+
+h3, .h3-style{
+	font-family: $heading;
+	margin-bottom: $fontsizeMargin;
+	font-size: $fontsizeM;
+	font-weight: 200;
+	line-height: 1.5em;
+}
+
+h2, .h2-style{
+	font-family: $heading;
+	margin-bottom: $fontsizeMargin;
+	font-size: $fontsizeL;
+	font-weight: 200;
+	line-height: 1.2em;
+	// @include breakpoint($breakPoint3){
+	// 	font-size: $fontsizeS; 
+	// }
+}
+
+h1, .h1-style{
+	font-family: $heading;
+	margin-bottom: $fontsizeMargin;
+	font-size: $fontsizeXL;
+	font-weight: 200;
+	line-height: 1.2em;
+	@include breakpoint($breakPoint3){
+		font-size: $fontsizeL; 
+	}
+}
+
+body{
+	letter-spacing: 0.01em;
+	color: $textPrimary;
+}

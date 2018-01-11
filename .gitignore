@@ -1,1 +1,8 @@
 .DS_Store
+bin/config.sh
+node_modules/
+assets/js/application.min.js
+assets/styles/application.css
+assets/images/*.png
+assets/images/*.jpg
+assets/images/*.svg
