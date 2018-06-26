@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,700');
 
 $heading: 'Georgia', serif;
-$subheading: 'Special Elite', serif;
-$body: 'Arial', sans-serif;
+$body: 'Roboto', sans-serif;
 
-$fontsizeXL: 67px; // h1
-$fontsizeL: 42px; // h2
-$fontsizeM: 22px; // h3
-$fontsizeS: 18px; // h4, buttons
-$fontsizeXS: 15px; // p
-$fontsizeMargin: 20px;
+$fontsizeH1: 76px;
+$fontsizeH2: 42px;
+$fontsizeH3: 35px;
+$fontsizeH4: 26px;
+$fontsizeP: 15px;
 
 a{
 	color: $primary;
@@ -17,75 +15,77 @@ a{
 }
 
 strong{
-	font-weight: 800;
+	font-weight: 700;
 }
 
-em, i{
+em{
 	font-style: italic;
 }
 
-p, li, .p-style{
-	font-size: $fontsizeXS;
+p, li{
+	font-size: $fontsizeP;
 	font-family: $body;
-	margin-bottom: $fontsizeMargin;
-	font-weight: 200;
-	line-height: 1.8em;
+	margin-bottom: 1.5em;
+	font-weight: 300;
+	line-height: 1.9em;
 }
 
 ul, ol{
-	margin-bottom: $fontsizeMargin;
-	font-size: $fontsizeXS;
+	margin-bottom: 1.5em;
+	font-size: $fontsizeP;
 	font-family: $body;
 }
 
 ul{
 	list-style: disc inside;
+	li{
+		margin-bottom: 0.9em;
+		&:last-of-type{
+			margin-bottom: 1.9em;
+		}
+	}
 }
 
 ol{
 	list-style: decimal inside;
 }
 
-h4, .h4-style{
-	font-family: $subheading;
-	margin-bottom: $fontsizeMargin;
-	font-size: $fontsizeS;
-	font-weight: 200;
-	line-height: 1.2em;
-	color: $primary;
+h4, .h-four{
+	font-size: $fontsizeH4;
+	font-family: $body;
+	line-height: 1.1em;
+	font-weight: 300;
+	text-transform: uppercase;
 }
 
-h3, .h3-style{
+h3, .h-three{
+	font-size: $fontsizeH3;
 	font-family: $heading;
-	margin-bottom: $fontsizeMargin;
-	font-size: $fontsizeM;
-	font-weight: 200;
-	line-height: 1.5em;
+	line-height: 0.9em;
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
-h2, .h2-style{
+h2, .h-two{
+	font-size: $fontsizeH2;
 	font-family: $heading;
-	margin-bottom: $fontsizeMargin;
-	font-size: $fontsizeL;
-	font-weight: 200;
-	line-height: 1.2em;
-	// @include breakpoint($breakPoint3){
-	// 	font-size: $fontsizeS; 
-	// }
+	line-height: 1.1em;
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
-h1, .h1-style{
+h1{
+	font-size: $fontsizeH1;
 	font-family: $heading;
-	margin-bottom: $fontsizeMargin;
-	font-size: $fontsizeXL;
-	font-weight: 200;
-	line-height: 1.2em;
-	@include breakpoint($breakPoint3){
-		font-size: $fontsizeL; 
+	line-height: 0.9em;
+	font-weight: 400;
+	text-transform: uppercase;
+	@include breakpoint($breakPoint3) {
+		font-size: $fontsizeH2;
 	}
 }
 
 body{
-	letter-spacing: 0.01em;
+	letter-spacing: 0.04em;
 	color: $textPrimary;
 }

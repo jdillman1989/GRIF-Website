@@ -8,13 +8,13 @@ var imagemin = require('gulp-imagemin');
 gulp.task('default', function () {
 	gulp.src('./assets/js/application.js')
 	.pipe(uglify())
-	.pipe(gulp.dest('./assets/js/application.min.js'));
+	.pipe(gulp.dest('./assets/js/min/'));
 
 	gulp.src('./assets/sass/application.scss')
 	.pipe(sass().on('error', sass.logError))
-	.pipe(gulp.dest('./assets/styles/application.css'));
+	.pipe(gulp.dest('./assets/styles/'));
 
 	gulp.src('./assets/images/raw/*')
 	.pipe(imagemin())
-	.pipe(gulp.dest('./assets/images'));
+	.pipe(gulp.dest('./assets/images/'));
 });

@@ -1,5 +1,23 @@
 <?php
-// See: https://github.com/johnbillion/extended-cpts/wiki/
+core_post_type('Sermons', [
+		'slug' => 'sermons',
+		'supports' => ['title', 'editor', 'thumbnail']
+	]
+);
+core_taxonomy('Sermon Series', 'sermons');
+core_taxonomy('Sermon Categories', 'sermons');
 
-// $article_pt = register_extended_post_type( 'article' );
-// $article_pt->add_taxonomy( 'article categories' );
+
+core_post_type('Events', [
+		'slug' => 'events',
+		'supports' => ['title', 'editor', 'thumbnail']
+	]
+);
+core_taxonomy('Event Categories', 'events');
+
+
+core_post_type('Emails', [
+		'slug' => 'emails',
+		'supports' => ['title', 'editor', 'thumbnail']
+	]
+);
