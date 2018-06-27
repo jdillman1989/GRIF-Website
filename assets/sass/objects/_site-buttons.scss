@@ -1,0 +1,46 @@
+.grif-button{
+	min-width: 180px;
+}
+
+.grif-button.disabled{
+	pointer-events: none;
+	opacity: 0.1;
+}
+
+.grif-button{
+	display: inline-block;
+	text-decoration: none;
+	background-color: $primary;
+	color: #FFF;
+	font-size: $fontsizeP;
+	text-transform: uppercase;
+	padding: 12px 18px;
+	font-family: $heading;
+	font-weight: 300;
+	text-align: center;
+	transition: all 0.3s ease;
+	border-radius: 0;
+	border: 1px solid $secondary;
+	line-height: 1em;
+	cursor: pointer;
+	&:hover{
+		background-color: $secondary;
+		color: $textPrimary;
+	}
+	&.white{
+		background-color: #FFF;
+		color: $textPrimary;
+		&:hover{
+			background-color: $primary;
+			color: #FFF;
+		}
+	}
+}
+
+.grif-button + .grif-button{
+	margin-left: 20px;
+	@include breakpoint($breakPoint3) {
+		margin-left: 0;
+		margin-top: 20px;
+	}
+}

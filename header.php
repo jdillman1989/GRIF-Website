@@ -19,7 +19,12 @@ class Header extends Core_Template {
 	}
 
 	public function social_nav() {
-		grif_social();
+		return grif_social();
+	}
+
+	public function announcement() {
+		$announcement = get_field('announcement', 'option');
+		return $announcement;
 	}
 }
 new Header;

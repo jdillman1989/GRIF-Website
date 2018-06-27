@@ -62,13 +62,13 @@ jQuery(document).ready(function($) {
 
 	// Categories
 	$('.news-tax-list li a').click(function(e) {
-		if (!$(this).hasClass('jumpnav')) {
-			e.preventDefault();
-		}
-		var nextLink = $('.next-link');
+		e.preventDefault();
+
 		var el = $(this),
 			tax = el.data('tax'),
-			term = el.data('term');
+			term = el.data('term'),
+			type = el.data('type'),
+			nextLink = $('.full-archive.' + type).find('.next-link');
 
 		$('.news-tax-label').each(function() {
 			$(this).next().slideUp(300);
@@ -87,11 +87,10 @@ jQuery(document).ready(function($) {
 		currentFilter[tax] = [term];
 		nextLink.data('tax', currentFilter);
 
-		taxonomyFilter();
+		taxonomyFilter(nextLink);
 	});
 
-	function taxonomyFilter(){
-		var nextLink = $('.next-link');
+	function taxonomyFilter(nextLink){
 		var ppp = nextLink.data('ppp'),
 			action = nextLink.data('action'),
 			tax = nextLink.data('tax'),
@@ -126,15 +125,16 @@ jQuery(document).ready(function($) {
 	}
 
 	// Search
-	$('#filterSearch').submit(function(e) {
+	$('.filter-search').submit(function(e) {
 		e.preventDefault();
 
-		var searchTerm = $('#filterSearchVal').val();
+		var el = $(this);
+		var type = el.data('type');
+		var searchTerm = el.find('.news-search').val();
 		if(searchTerm.length > 1){
 			
-			var nextLink = $('.next-link');
-			var type = nextLink.data('type'),
-				action = nextLink.data('action');
+			var nextLink = $('.full-archive.' + type).find('.next-link');
+			var action = nextLink.data('action');
 			nextLink.addClass('disabled');
 
 			$('.news-tax-label').each(function() {
@@ -145,7 +145,7 @@ jQuery(document).ready(function($) {
 				}
 				$(this).text($(this).data('all'));
 			});
-			var archive = nextLink.parent().siblings('.archive-container')
+			var archive = nextLink.parent().siblings('.archive-container');
 			archive.fadeTo('fast', 0);
 
 			$.ajax({
@@ -168,20 +168,13 @@ jQuery(document).ready(function($) {
 		var newsHTML = '';
 		for (var i = 0; i <= newsData['data'].length-1; i++) {
 			switch(type) {
-			    case 'product':
+			    case 'sermons':
+			    case 'events':
 					var newsTemplateData = {
 						"image": newsData['data'][i].image,
 						"title": newsData['data'][i].title,
 						"permalink": newsData['data'][i].permalink,
-						"price": newsData['data'][i].price
-					};
-					var htmlData = getTemplateHTML(newsTemplateData, type);
-			        break;
-			    case 'resources':
-					var newsTemplateData = {
-						"image": newsData['data'][i].image,
-						"title": newsData['data'][i].title,
-						"permalink": newsData['data'][i].permalink,
+						"date": newsData['data'][i].date
 					};
 					var htmlData = getTemplateHTML(newsTemplateData, type);
 			        break;
@@ -193,22 +186,14 @@ jQuery(document).ready(function($) {
 
 	function getTemplateHTML(data, type) {
 		switch(type) {
-		    case 'product':
+		    case 'sermons':
+		    case 'events':
 				var htmlTemplate = $('.card').first().clone();
 
 				htmlTemplate.attr('href', data.permalink);
 				htmlTemplate.find('.card-image').attr('style', 'background-image: url(' + data.image + '); background-repeat: no-repeat; background-position: center center; background-size: cover;');
-				htmlTemplate.find('.card-content h4').text(data.title);
-				htmlTemplate.find('.card-content .price').text(data.price);
-
-		        break;
-
-		    case 'resources':
-				var htmlTemplate = $('.card').first().clone();
-
-				htmlTemplate.attr('href', data.permalink);
-				htmlTemplate.find('.card-image').attr('style', 'background-image: url(' + data.image + '); background-repeat: no-repeat; background-position: center center; background-size: cover;');
-				htmlTemplate.find('.card-content h4').text(data.title);
+				htmlTemplate.find('.card-content .date').text(data.date);
+				htmlTemplate.find('.card-content .post-title').text(data.title);
 
 		        break;
 
@@ -320,9 +305,11 @@ jQuery(document).ready(function($) {
 	// Mobile Menu //
 	/////////////////
 
-	var mobileOpenState = false;
+	var breakPoint = 1200;
+
 	var mobileNav = $('#mobileNav');
-	var navSlide = $('.cl-main-nav');
+	var navSlide = $('.main-nav');
+	var mobileOpenState = false;
 
 	mobileNav.click(function(e) {
 		e.stopPropagation();
@@ -332,17 +319,18 @@ jQuery(document).ready(function($) {
 			mobileOpenState = false;
 		} 
 		else{
-			var distance = 0;
-			if($(window).width() > 450){
-				distance = parseFloat(navSlide.outerHeight()) + parseFloat($('.header-top').outerHeight());
-			}
-			else{
-				distance = parseFloat(navSlide.outerHeight());
-			}
-			navSlide.css({"transform":"translate(0px, " + distance + "px)"});
+			navSlide.css({"transform":"translate(" + (-1 * navSlide.outerWidth()) + "px, 0px)"});
 			mobileNav.addClass('active');
 			mobileOpenState = true;
 		};
+	});
+
+	$('#close').click(function(e) {
+		if (mobileOpenState) {
+			navSlide.css({"transform":"translate(0px, 0px)"});
+			mobileNav.removeClass('active');
+			mobileOpenState = false;
+		}
 	});
 
 	$('html').click(function() {
@@ -353,30 +341,40 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	$(window).resize(function() {
+		if($(window).width() > breakPoint){
+			if (mobileOpenState) {
+				navSlide.css({"transform":"translate(0px, 0px)"});
+				mobileNav.removeClass('active');
+				mobileOpenState = false;
+			}
+		}
+	});
+
 	///////////////////
 	// Mobile Search //
 	///////////////////
 
-	var searchOpenState = false;
-	var searchNav = $('#searchNav');
+	var searchNav = $('.search-nav');
 	var searchSlide = $('.search-input-container');
-	var searchForm = $('#filterSearch');
+	var searchForm = $('.filter-search');
 
 	var windowWidth = $(window).width();
 
 	searchNav.click(function(e) {
 		e.preventDefault();
+		var el = $(this);
+		var searchForm = el.parent();
+		var searchSlide = searchForm.find('.search-input-container');
 		if (windowWidth < 761) {
-			if (searchOpenState) {
+			if (el.hasClass('active')) {
 				searchForm.submit();
 				searchSlide.css({"transform":"translate(0px, 0px)"});
 				searchNav.removeClass('active');
-				searchOpenState = false;
 			} 
 			else {
 				searchSlide.css({"transform":"translate(" + (-1 * searchSlide.outerWidth()) + "px, 0px)"});
 				searchNav.addClass('active');
-				searchOpenState = true;
 			}
 		}
 		else{
@@ -412,8 +410,8 @@ jQuery(document).ready(function($) {
 
     if ($('.announcement').length) {
         setTimeout(function(){
-        	$('.announcement').css({"height":"45px"});
-        }, 1500);
+        	$('.announcement').css({"height":"60px"});
+        }, 1000);
     }
 
     $('.announcement .close').click(function(e){
@@ -432,8 +430,8 @@ jQuery(document).ready(function($) {
     		var searchTest = query.split('-');
     		if(searchTest[0] == 'search'){
     			var searchTerm = decodeURIComponent(searchTest[1]);
-    			$('#filterSearchVal').val(searchTerm);
-    			$('#filterSearch').submit();
+    			$('.news-search').val(searchTerm);
+    			$('.filter-search').submit();
     		}
     		else{
     			$('.' + query).click();

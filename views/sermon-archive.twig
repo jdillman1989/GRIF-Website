@@ -1,0 +1,61 @@
+{% extends "base.twig" %}
+{% block content %}
+
+<main class="page-builder">
+	{% for layout in fields %}
+
+		{% if layout.acf_fc_layout == "hero" %}
+			<section class="hero" style="
+				background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url({{ layout.background_image.url }});
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: cover;
+			" alt="{{ layout.background_image.alt }}">
+				<div class="hero-container">
+					<h1>{{ layout.heading }}</h1>
+					<p>{{ layout.subheading }}</p>
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "basic_text" %}
+			<section class="basic-text" style="background-color: #{{ layout.background_color }};">
+				<div class="basic-text-container grif-container" style="max-width: {% if layout.content_width %}{{ layout.content_width }}px{% else %}100%{% endif %};">
+					{{ layout.text_content }}
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "two_column_text" %}
+			<section class="two-column-text" style="background-color: #{{ layout.background_color }};">
+				<div class="two-column-text-container grif-container" style="max-width: {% if layout.content_width %}{{ layout.content_width }}px{% else %}100%{% endif %};">
+					<div class="text-column">
+						{{ layout.left_text_content }}
+					</div>
+					<div class="text-column">
+						{{ layout.right_text_content }}
+					</div>
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "current_sermon_series" %}
+			<section class="current-series">
+				<div class="current-series-container">
+					<div class="current-series-header">
+						
+					</div>
+					<div class="current-series-graphic" style="
+						background-image: url({{ layout.image.url }});
+						background-repeat: no-repeat;
+						background-position: center center;
+						background-size: cover;
+					" alt="{{ layout.image.alt }}"></div>
+					<div class="current-series-buttons">
+						<a href="" class="grif-button white"></a>
+					</div>
+				</div>
+			</section>
+
+		{% endif %}
+	{% endfor %}
+</main>
+
+{% endblock %}

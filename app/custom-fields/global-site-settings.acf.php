@@ -8,7 +8,8 @@ $group_args = [
 
 $fields = [
 	['tab', 'General Info', ['placement' => 'left']],
-	['textarea', 'Address', ['instructions' => 'Displays in the footer']],
+	['message', '', ['message' => 'Displays in the footer and anywhere the [grif_address] shortcode is used']],
+	['textarea', 'Address'],
 	['text', 'Main Email'],
 	['text', 'Main Phone'],
 
@@ -16,7 +17,8 @@ $fields = [
 	['text', 'Announcement', ['instructions' => 'Prominent message that can display above the main menu (ex: weather alerts)']],
 
 	['tab', 'Site CTA', ['placement' => 'left']],
-	['text', 'CTA Title', ['instructions' => 'Appears wherever the CTA content block is used']],
+	['message', '', ['message' => 'Appears wherever the CTA content block is used']],
+	['text', 'CTA Title'],
 	['text', 'CTA Description'],
 ];
 

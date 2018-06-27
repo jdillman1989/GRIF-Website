@@ -20,7 +20,7 @@ class Footer extends Core_Template {
 	}
 
 	public function social_nav() {
-		grif_social(true);
+		return grif_social(true);
 	}
 }
 new Footer;

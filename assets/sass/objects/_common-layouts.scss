@@ -1,0 +1,60 @@
+.grif-container{
+	width: 85%;
+	margin: 0 auto;
+}
+
+.archive-container{
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	width: 100%;
+	flex-wrap: wrap;
+	.card{
+		display: block;
+		width: 22%;
+		background-color: #FFF;
+		color: $textPrimary;
+		text-decoration: none;
+		margin-bottom: 40px;
+		&:hover{
+			.card-content{
+				.grif-button{
+					color: #FFF;
+					background-color: $primary;
+				}
+			}	
+		}
+		.card-image{
+			width: 100%;
+			height: 18vw;
+			max-height: 300px;
+		}
+		.card-content{
+			padding: 20px;
+			h4, p{
+				margin-bottom: 0;
+				text-transform: none;
+			}
+			.date{
+				text-transform: uppercase;
+				margin-bottom: 7px;
+			}
+			.post-title{
+				margin-bottom: 20px;
+			}
+			.grif-button{
+				text-transform: uppercase;
+				max-width: 100%;
+				width: 100%;
+			}
+		}
+		&.empty{
+			height: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.more-button{
+	text-align: center;
+}

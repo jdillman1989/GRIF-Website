@@ -61,7 +61,7 @@ h4, .h-four{
 h3, .h-three{
 	font-size: $fontsizeH3;
 	font-family: $heading;
-	line-height: 0.9em;
+	line-height: 1em;
 	font-weight: 400;
 	text-transform: uppercase;
 }
@@ -72,17 +72,29 @@ h2, .h-two{
 	line-height: 1.1em;
 	font-weight: 400;
 	text-transform: uppercase;
+	margin-bottom: 0.6em;
 }
 
 h1{
 	font-size: $fontsizeH1;
 	font-family: $heading;
-	line-height: 0.9em;
+	line-height: 1em;
 	font-weight: 400;
 	text-transform: uppercase;
 	@include breakpoint($breakPoint3) {
 		font-size: $fontsizeH2;
 	}
+}
+
+hr{
+	display: block;
+	border: none;
+	padding: 0;
+	margin: 0 auto;
+	margin-bottom: 0.9em;
+	height: 2px;
+	width: 50px;
+	background-color: $primary;
 }
 
 body{

@@ -19,8 +19,200 @@
 
 		{% elseif layout.acf_fc_layout == "basic_text" %}
 			<section class="basic-text" style="background-color: #{{ layout.background_color }};">
-				<div class="basic-text-container">
+				<div class="basic-text-container grif-container" style="max-width: {% if layout.content_width %}{{ layout.content_width }}px{% else %}100%{% endif %};">
 					{{ layout.text_content }}
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "two_column_text" %}
+			<section class="two-column-text" style="background-color: #{{ layout.background_color }};">
+				<div class="two-column-text-container grif-container" style="max-width: {% if layout.content_width %}{{ layout.content_width }}px{% else %}100%{% endif %};">
+					<div class="text-column">
+						{{ layout.left_text_content }}
+					</div>
+					<div class="text-column">
+						{{ layout.right_text_content }}
+					</div>
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "current_sermon_series" %}
+			<section class="current-series" style="background-color: #{{ layout.bg_color }};">
+				<div class="current-series-container">
+					<div class="current-series-header" style="color: #{{ layout.text_color }};">
+						<h2>Current Series</h2>
+					</div>
+					<div class="current-series-graphic" style="
+						background-image: url({{ layout.image.url }});
+						background-repeat: no-repeat;
+						background-position: center center;
+						background-size: contain;
+					" alt="{{ layout.image.alt }}"></div>
+					<div class="current-series-buttons">
+						<a href="{{ layout.archive }}#{{ layout.slug }}" class="grif-button {{ layout.button_color }}">All Sermons</a>
+					</div>
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "alternating_text_and_images" %}
+			<section class="alternating">
+				<div class="alternating-container" style="background-color: #{{ layout.background_color }};">
+					{% if layout.heading %}
+						<h2 class="alternating-heading">{{ layout.heading }}</h2>
+					{% endif %}
+					{% for content in layout.alternating_content %}
+						<div class="alternating-content">
+							<div class="alternating-content-text">
+								<div class="alternating-content-text-container">
+									{{ content.text_content }}
+								</div>
+							</div>
+							<div class="alternating-content-image" style="
+								background-image: url({{ content.image.url }});
+								background-repeat: no-repeat;
+								background-position: center center;
+								background-size: cover;
+							" alt="{{ content.image.alt }}"></div>
+						</div>
+					{% endfor %}
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "latest_archive" %}
+			<section class="latest" style="background-color: #{{ layout.bg_color }};">
+				<div class="latest-container grif-container">
+					{% if layout.heading %}
+						<h2 class="latest-heading">{{ layout.heading }}</h2>
+					{% endif %}
+					<div class="archive-container">
+						{% for post in layout.posts %}
+						<a class="card" href="{{ post.permalink }}">
+							<div class="card-image" style="
+								background-image: url({{ post.image }});
+								background-repeat: no-repeat;
+								background-position: center center;
+								background-size: cover;
+							"></div>
+							<div class="card-content">
+								<p class="date">{{ post.date }}</p>
+								<h4 class="post-title">{{ post.title }}</h4>
+								<p class="grif-button white">View</p>
+							</div>
+						</a>
+						{% endfor %}
+						<a href="#" class="card empty"></a>
+						<a href="#" class="card empty"></a>
+						<a href="#" class="card empty"></a>
+					</div>
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "image_nav" %}
+			<section class="image-nav">
+				<div class="image-nav-container">
+					{% for item in layout.nav_items %}
+						<a href="{{ item.url }}" class="image-nav-item" style="
+							background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url({{ item.image.url }});
+							background-repeat: no-repeat;
+							background-position: center center;
+							background-size: cover;
+						" alt="{{ item.image.alt }}">
+							<h3>{{ item.label }}</h3>
+						</a>
+					{% endfor %}
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "text_and_image" %}
+			<section class="text-image" style="background-color: #{{ layout.background_color }};">
+				<div class="text-image-container grif-container {% if layout.flip_order %}reverse{% endif %}">
+					<div class="text-image-text">
+						<div class="text-image-text-container">
+							{{ layout.text_content }}
+						</div>
+					</div>
+					<div class="text-image-image">
+						<img src="{{ layout.image.url }}" alt="{{ layout.image.alt }}">
+					</div>
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "site_cta" %}
+			<section class="site-cta">
+				<div class="site-cta-container grif-container">
+					<h2>{{ layout.title }}</h2>
+					<p>{{ layout.description }}</p>
+
+					<!-- Begin MailChimp Signup Form -->
+					<div id="mc_embed_signup">
+						<form action="https://grifonline.us11.list-manage.com/subscribe/post?u=b71ddcebfdd9beda5a96926ce&amp;id=f19501d35d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<div id="mc_embed_signup_scroll">
+								<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+								<div style="position: absolute; left: -5000px;" aria-hidden="true">
+									<input type="text" name="b_b71ddcebfdd9beda5a96926ce_f19501d35d" tabindex="-1" value="">
+								</div>
+								<div class="clear">
+									<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="grif-button">
+								</div>
+							</div>
+						</form>
+					</div>
+					<!--End mc_embed_signup-->
+
+				</div>
+			</section>
+
+		{% elseif layout.acf_fc_layout == "full_archive" %}
+			<section class="full-archive {{ layout.type }}" style="background-color: #{{ layout.bg_color }};">
+				<div class="full-archive-container grif-container">
+					{% if layout.heading %}
+						<h2 class="archive-heading">{{ layout.heading }}</h2>
+					{% endif %}
+					<div class="news-filters">
+						<div class="news-filters-container">
+							<div class="news-tax-nav">
+								<div class="news-tax">
+									<p>filter:</p>
+								</div>
+								{{ layout.filter_ui }}
+							</div>
+							<div class="news-search">
+								<form class="filter-search" data-type="{{ layout.type }}">
+									<div class="search-input-container">
+										<input type="text" class="news-search" placeholder="SEARCH">
+									</div>
+									<button class="search-nav" type="submit">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="3243.5 -8983 21.05 21.784"><path id="path-2" style="fill: #FFF; stroke: #FFF;" d="M19.882,20.118l-5.8-6.078a8.147,8.147,0,0,0,2.392-5.8,8.213,8.213,0,1,0-2.98,6.353l5.843,6.078a.379.379,0,0,0,.549,0A.379.379,0,0,0,19.882,20.118ZM8.235,15.686a7.451,7.451,0,1,1,7.451-7.451A7.448,7.448,0,0,1,8.235,15.686Z" transform="translate(3244 -8982.5)"/></svg>
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="cards">
+						<div class="archive-container">
+							{% for post in layout.posts %}
+							<a class="card" href="{{ post.permalink }}">
+								<div class="card-image" style="
+									background-image: url({{ post.image }});
+									background-repeat: no-repeat;
+									background-position: center center;
+									background-size: cover;
+								"></div>
+								<div class="card-content">
+									<p class="date">{{ post.date }}</p>
+									<h4 class="post-title">{{ post.title }}</h4>
+									<p class="grif-button white">View</p>
+								</div>
+							</a>
+							{% endfor %}
+							<a href="#" class="card empty"></a>
+							<a href="#" class="card empty"></a>
+							<a href="#" class="card empty"></a>
+						</div>
+						<div class="more-button">
+							{{ layout.next_button }}
+						</div>
+					</div>
 				</div>
 			</section>
 
