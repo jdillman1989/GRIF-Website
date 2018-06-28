@@ -45,6 +45,69 @@
 	padding-top: 0;
 }
 
+.gallery-grid{
+	padding: 50px 0;
+	.gallery-grid-container{
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.gallery-grid-image{
+			width: 31%;
+			height: 26.3vw;
+			max-height: 422px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			margin-bottom: 3.5%;
+			.gallery-grid-caption{
+				width: 100%;
+				background: rgba(0,0,0,0.6);
+				padding: 15px;
+				.gallery-grid-caption-container{
+					color: #FFF;
+					*{
+						margin-bottom: 0;
+					}
+				}
+			}
+			&.empty{
+				height: 0;
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.two-column-divided{
+	padding: 50px 0;
+	.two-column-divided-container{
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+		padding: 50px 0;
+		@include breakpoint($breakPoint2) {
+			flex-wrap: wrap;
+		}
+		.divided-column{
+			width: 45%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			@include breakpoint($breakPoint2) {
+				width: 100%;
+			}
+			div{
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+	.two-column-divided-container + .two-column-divided-container{
+		border-top: 1px solid $secondary;
+	}
+}
+
 .current-series{
 	.current-series-container{
 		.current-series-header{
@@ -361,3 +424,84 @@
 		text-align: center;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.accordion-item{
+	margin-bottom: 30px;
+	.accordion-toggle{
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: $lgray;
+		h3{
+			width: 100%;
+			margin-bottom: 0;
+			padding: 0 30px;
+			line-height: 0.9em;
+			text-transform: uppercase;
+			color: #000;
+			font-size: 22px;
+		}
+		.accordion-icon{
+			background-color: $primary;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			width: 70px;
+			height: 70px;
+			text-align: center;
+			p{
+				color: #FFF;
+				font-size: 50px;
+				transition: all 0.3s ease;
+				transform-origin: 50% 50%;
+				display: inline-block;
+				font-weight: 200;
+				text-align: center;
+				width: auto;
+				margin: 0 auto;
+			}
+		}
+		&:not(.active){
+		}
+		&.active{
+			.accordion-icon{
+				p{
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+	.accordion-content{
+		display: none;
+		width: 100%;
+		padding: 10px 30px 40px 30px;
+		margin: 0 auto;
+		background-color: $lgray;
+		p{
+			max-width: 80%;
+			margin: 0 auto;
+		}
+	}
+}
+
+
+
+

@@ -78,6 +78,92 @@ $fields = [
 					]
 				],
 				[
+					'Two Column Content Divided',
+					[
+						'layout' => 'block',
+						'sub_fields' => [
+							['repeater', 'Content Row', [
+								'sub_fields' => [
+									['wysiwyg', 'Left Content'],
+									['wysiwyg', 'Right Content'],
+								],
+								'min' => 1,
+								'max' => 24,
+								'layout' => 'block',
+								'button_label' => 'Add Content Row'
+							]],
+							['select', 'Background Color', 
+								[
+									'choices' => [
+										'FFF' => 'White',
+										'E9EBEC' => 'Light Gray',
+									],
+								]
+							],
+							['number', 'Content Width', [
+								'instructions' => 'Maximum width of the content for this block in pixels (0 = 100%)',
+								'min' => 0,
+								'max' => 1500,
+								'step' => 1,
+							]],
+						]
+					]
+				],
+				[
+					'Gallery Grid',
+					[
+						'layout' => 'block',
+						'sub_fields' => [
+							['repeater', 'Images', [
+								'sub_fields' => [
+									['image', 'Image', ['return_format' => 'array']],
+									['wysiwyg', 'Caption'],
+								],
+								'min' => 1,
+								'max' => 24,
+								'layout' => 'block',
+								'button_label' => 'Add Image'
+							]],
+							['select', 'Background Color', 
+								[
+									'choices' => [
+										'FFF' => 'White',
+										'E9EBEC' => 'Light Gray',
+									],
+								]
+							],
+						]
+					]
+				],
+				[
+					'Accordion Section',
+					[
+						'layout' => 'block',
+						'sub_fields' => [
+							['wysiwyg', 'Intro'],
+							['repeater', 'Accordions', [
+								'sub_fields' => [
+									['text', 'Heading'],
+									['wysiwyg', 'Content'],
+								],
+								'min' => 1,
+								'max' => 48,
+								'layout' => 'block',
+								'button_label' => 'Add Accordion'
+							]],
+							['select', 'Background Color', 
+								[
+									'choices' => [
+										'FFF' => 'White',
+										'E9EBEC' => 'Light Gray',
+										'0C0C0C' => 'Dark Gray',
+									],
+								]
+							],
+						]
+					]
+				],
+				[
 					'Alternating Text and Images',
 					[
 						'layout' => 'block',

@@ -36,6 +36,86 @@
 				</div>
 			</section>
 
+		{% elseif layout.acf_fc_layout == "two_column_content_divided" %}
+			<section class="two-column-divided" style="background-color: #{{ layout.background_color }};">
+				{% for content in layout.content_row %}
+					<div class="two-column-divided-container grif-container" style="max-width: {% if layout.content_width %}{{ layout.content_width }}px{% else %}100%{% endif %};">
+						<div class="divided-column">
+							<div>
+								{{ content.left_content }}
+							</div>
+						</div>
+						<div class="divided-column">
+							<div>
+								{{ content.right_content }}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</section>
+
+
+
+
+
+
+
+
+
+		{% elseif layout.acf_fc_layout == "accordion_section" %}
+			<section class="accordions" data-bg="{{ layout.background_color }}" style="background-color: #{{ layout.background_color }};">
+				<div class="accordions-container grif-container">
+					{% if layout.intro %}
+						<div class="accordions-intro">
+							{{ layout.intro }}
+						</div>
+					{% endif %}
+					{% for content in layout.accordions %}
+						<div class="accordion-item">
+							<div class="accordion-toggle">
+								<h3>{{ content.heading }}</h3>
+								<div class="accordion-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="2299.263 -8977.207 25.238 14.235"><path id="Path_258" data-name="Path 258" style="fill: none; stroke: #FFF; stroke-width: 2px;" d="M946.684,667.761,934.57,679.875l-11.71-11.71" transform="translate(1377.11 -9644.261)"/></svg>
+								</div>
+							</div>
+							<div class="accordion-content">
+								{{ content.content }}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</section>
+
+
+
+
+
+
+
+		{% elseif layout.acf_fc_layout == "gallery_grid" %}
+			<section class="gallery-grid" style="background-color: #{{ layout.background_color }};">
+				<div class="gallery-grid-container grif-container">
+					{% for content in layout.images %}
+						<div class="gallery-grid-image" style="
+							background-image: url({{ content.image.url }});
+							background-repeat: no-repeat;
+							background-position: center center;
+							background-size: cover;
+						" alt="{{ content.image.alt }}">
+							{% if content.caption %}
+								<div class="gallery-grid-caption">
+									<div class="gallery-grid-caption-container">
+										{{ content.caption }}
+									</div>
+								</div>
+							{% endif %}
+						</div>
+					{% endfor %}
+					<div class="gallery-grid-image empty"></div>
+					<div class="gallery-grid-image empty"></div>
+				</div>
+			</section>
+
 		{% elseif layout.acf_fc_layout == "current_sermon_series" %}
 			<section class="current-series" style="background-color: #{{ layout.bg_color }};">
 				<div class="current-series-container">
