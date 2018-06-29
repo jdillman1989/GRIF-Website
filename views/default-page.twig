@@ -54,14 +54,6 @@
 				{% endfor %}
 			</section>
 
-
-
-
-
-
-
-
-
 		{% elseif layout.acf_fc_layout == "accordion_section" %}
 			<section class="accordions" data-bg="{{ layout.background_color }}" style="background-color: #{{ layout.background_color }};">
 				<div class="accordions-container grif-container">
@@ -73,9 +65,9 @@
 					{% for content in layout.accordions %}
 						<div class="accordion-item">
 							<div class="accordion-toggle">
-								<h3>{{ content.heading }}</h3>
+								<h4>{{ content.heading }}</h4>
 								<div class="accordion-icon">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="2299.263 -8977.207 25.238 14.235"><path id="Path_258" data-name="Path 258" style="fill: none; stroke: #FFF; stroke-width: 2px;" d="M946.684,667.761,934.57,679.875l-11.71-11.71" transform="translate(1377.11 -9644.261)"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="2299.263 -8977.207 25.238 14.235"><path id="Path_258" data-name="Path 258" d="M946.684,667.761,934.57,679.875l-11.71-11.71" transform="translate(1377.11 -9644.261)"/></svg>
 								</div>
 							</div>
 							<div class="accordion-content">
@@ -85,12 +77,6 @@
 					{% endfor %}
 				</div>
 			</section>
-
-
-
-
-
-
 
 		{% elseif layout.acf_fc_layout == "gallery_grid" %}
 			<section class="gallery-grid" style="background-color: #{{ layout.background_color }};">

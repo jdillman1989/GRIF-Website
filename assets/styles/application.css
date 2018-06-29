@@ -129,6 +129,9 @@ h2, .h-two {
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: 0.6em; }
+  @media only screen and (max-width: 760px) {
+    h2, .h-two {
+      font-size: 35px; } }
 
 h1 {
   font-size: 76px;
@@ -495,6 +498,15 @@ main {
     color: #0C0C0C;
     text-decoration: none;
     margin-bottom: 40px; }
+    @media only screen and (max-width: 950px) {
+      .archive-container .card {
+        width: 45%; } }
+    @media only screen and (max-width: 760px) {
+      .archive-container .card {
+        width: 100%;
+        max-width: 230px;
+        margin: 0 auto;
+        margin-bottom: 40px; } }
     .archive-container .card:hover .card-content .grif-button {
       color: #FFF;
       background-color: #227272; }
@@ -502,6 +514,14 @@ main {
       width: 100%;
       height: 18vw;
       max-height: 300px; }
+      @media only screen and (max-width: 950px) {
+        .archive-container .card .card-image {
+          height: 38.3vw;
+          max-height: 100%; } }
+      @media only screen and (max-width: 760px) {
+        .archive-container .card .card-image {
+          height: 85vw;
+          max-height: 230px; } }
     .archive-container .card .card-content {
       padding: 20px; }
       .archive-container .card .card-content h4, .archive-container .card .card-content p {
@@ -584,6 +604,16 @@ input, textarea, button {
       align-items: flex-end;
       justify-content: center;
       margin-bottom: 3.5%; }
+      @media only screen and (max-width: 1200px) {
+        .gallery-grid .gallery-grid-container .gallery-grid-image {
+          width: 48%;
+          height: 41vw;
+          max-height: 100%;
+          margin-bottom: 30px; } }
+      @media only screen and (max-width: 950px) {
+        .gallery-grid .gallery-grid-container .gallery-grid-image {
+          width: 100%;
+          height: 85vw; } }
       .gallery-grid .gallery-grid-container .gallery-grid-image .gallery-grid-caption {
         width: 100%;
         background: rgba(0, 0, 0, 0.6);
@@ -591,7 +621,8 @@ input, textarea, button {
         .gallery-grid .gallery-grid-container .gallery-grid-image .gallery-grid-caption .gallery-grid-caption-container {
           color: #FFF; }
           .gallery-grid .gallery-grid-container .gallery-grid-image .gallery-grid-caption .gallery-grid-caption-container * {
-            margin-bottom: 0; }
+            margin-bottom: 0;
+            color: #FFF; }
       .gallery-grid .gallery-grid-container .gallery-grid-image.empty {
         height: 0;
         margin-bottom: 0; }
@@ -613,7 +644,8 @@ input, textarea, button {
       justify-content: center; }
       @media only screen and (max-width: 950px) {
         .two-column-divided .two-column-divided-container .divided-column {
-          width: 100%; } }
+          width: 100%;
+          margin-bottom: 20px; } }
       .two-column-divided .two-column-divided-container .divided-column div {
         display: block;
         width: 100%; }
@@ -641,6 +673,9 @@ input, textarea, button {
   display: flex;
   align-items: stretch;
   justify-content: center; }
+  @media only screen and (max-width: 950px) {
+    .alternating .alternating-container .alternating-content {
+      flex-wrap: wrap; } }
   .alternating .alternating-container .alternating-content:nth-of-type(even) {
     flex-direction: row-reverse; }
   .alternating .alternating-container .alternating-content .alternating-content-text {
@@ -648,6 +683,9 @@ input, textarea, button {
     display: flex;
     align-items: center;
     justify-content: center; }
+    @media only screen and (max-width: 950px) {
+      .alternating .alternating-container .alternating-content .alternating-content-text {
+        width: 100%; } }
     .alternating .alternating-container .alternating-content .alternating-content-text .alternating-content-text-container {
       width: 85%;
       margin: 0 auto;
@@ -655,6 +693,12 @@ input, textarea, button {
   .alternating .alternating-container .alternating-content .alternating-content-image {
     width: 50%;
     min-height: 400px; }
+    @media only screen and (max-width: 950px) {
+      .alternating .alternating-container .alternating-content .alternating-content-image {
+        width: 100%; } }
+    @media only screen and (max-width: 760px) {
+      .alternating .alternating-container .alternating-content .alternating-content-image {
+        min-height: 250px; } }
 
 .latest .latest-container {
   padding: 50px 0; }
@@ -665,11 +709,12 @@ input, textarea, button {
 .image-nav .image-nav-container {
   display: flex;
   align-items: stretch;
-  justify-content: center; }
+  justify-content: center;
+  flex-wrap: wrap; }
   .image-nav .image-nav-container .image-nav-item {
     outline: 2px solid #FFF;
     outline-offset: -10px;
-    width: 100%;
+    width: 25%;
     height: 25vw;
     max-height: 400px;
     display: flex;
@@ -677,6 +722,14 @@ input, textarea, button {
     justify-content: center;
     transition: all 0.3s ease;
     text-decoration: none; }
+    @media only screen and (max-width: 950px) {
+      .image-nav .image-nav-container .image-nav-item {
+        width: 50%;
+        height: 50vw; } }
+    @media only screen and (max-width: 760px) {
+      .image-nav .image-nav-container .image-nav-item {
+        width: 100%;
+        height: 100vw; } }
     .image-nav .image-nav-container .image-nav-item:hover {
       outline-offset: -20px; }
       .image-nav .image-nav-container .image-nav-item:hover h3 {
@@ -695,6 +748,9 @@ input, textarea, button {
     display: flex;
     align-items: stretch;
     justify-content: space-between; }
+    @media only screen and (max-width: 760px) {
+      .text-image .text-image-container {
+        flex-wrap: wrap; } }
     .text-image .text-image-container.reverse {
       flex-direction: row-reverse; }
     .text-image .text-image-container .text-image-text {
@@ -702,11 +758,19 @@ input, textarea, button {
       display: flex;
       align-items: center;
       justify-content: center; }
+      @media only screen and (max-width: 760px) {
+        .text-image .text-image-container .text-image-text {
+          width: 85%;
+          margin: 10px auto; } }
       .text-image .text-image-container .text-image-text .text-image-text-container {
         padding: 30px 0;
         width: 100%; }
     .text-image .text-image-container .text-image-image {
       width: 45%; }
+      @media only screen and (max-width: 760px) {
+        .text-image .text-image-container .text-image-image {
+          width: 85%;
+          margin: 10px auto; } }
       .text-image .text-image-container .text-image-image img {
         width: 100%;
         height: auto; }
@@ -716,10 +780,16 @@ input, textarea, button {
   .site-cta .site-cta-container {
     max-width: 500px;
     text-align: center; }
+    @media only screen and (max-width: 450px) {
+      .site-cta .site-cta-container {
+        max-width: 100%; } }
     .site-cta .site-cta-container #mc_embed_signup form #mc_embed_signup_scroll {
       display: flex;
       align-items: stretch;
       justify-content: center; }
+      @media only screen and (max-width: 450px) {
+        .site-cta .site-cta-container #mc_embed_signup form #mc_embed_signup_scroll {
+          flex-wrap: wrap; } }
       .site-cta .site-cta-container #mc_embed_signup form #mc_embed_signup_scroll .email {
         width: 100%;
         background-color: #FFF;
@@ -728,11 +798,21 @@ input, textarea, button {
         margin-right: 5px;
         font-size: 15px;
         text-align: left; }
+        @media only screen and (max-width: 450px) {
+          .site-cta .site-cta-container #mc_embed_signup form #mc_embed_signup_scroll .email {
+            margin-bottom: 10px; } }
       .site-cta .site-cta-container #mc_embed_signup form #mc_embed_signup_scroll .clear {
         flex-shrink: 0;
         display: flex;
         align-items: stretch;
         justify-content: center; }
+        @media only screen and (max-width: 450px) {
+          .site-cta .site-cta-container #mc_embed_signup form #mc_embed_signup_scroll .clear {
+            flex-shrink: 1;
+            width: 100%; } }
+        .site-cta .site-cta-container #mc_embed_signup form #mc_embed_signup_scroll .clear .grif-button {
+          max-width: 100%;
+          width: 100%; }
 
 .news-filters {
   margin: 30px 0; }
@@ -856,52 +936,58 @@ input, textarea, button {
   .full-archive .archive-heading {
     text-align: center; }
 
-.accordion-item {
-  margin-bottom: 30px; }
-  .accordion-item .accordion-toggle {
+.accordions {
+  padding: 50px 0; }
+  .accordions .accordions-container .accordion-item:first-of-type .accordion-toggle {
+    border-top: none; }
+  .accordions .accordions-container .accordion-item .accordion-toggle {
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #F5F5F5; }
-    .accordion-item .accordion-toggle h3 {
+    padding: 30px;
+    border-top: 1px dotted #0C0C0C; }
+    @media only screen and (max-width: 950px) {
+      .accordions .accordions-container .accordion-item .accordion-toggle {
+        padding: 20px; } }
+    .accordions .accordions-container .accordion-item .accordion-toggle h4 {
       width: 100%;
       margin-bottom: 0;
-      padding: 0 30px;
       line-height: 0.9em;
-      text-transform: uppercase;
-      color: #000;
-      font-size: 22px; }
-    .accordion-item .accordion-toggle .accordion-icon {
-      background-color: #227272;
+      padding-right: 15px; }
+    .accordions .accordions-container .accordion-item .accordion-toggle .accordion-icon {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      width: 70px;
-      height: 70px;
-      text-align: center; }
-      .accordion-item .accordion-toggle .accordion-icon p {
-        color: #FFF;
-        font-size: 50px;
+      width: 50px;
+      height: 50px; }
+      @media only screen and (max-width: 950px) {
+        .accordions .accordions-container .accordion-item .accordion-toggle .accordion-icon {
+          width: 20px;
+          height: 20px; } }
+      .accordions .accordions-container .accordion-item .accordion-toggle .accordion-icon svg {
         transition: all 0.3s ease;
         transform-origin: 50% 50%;
-        display: inline-block;
-        font-weight: 200;
-        text-align: center;
-        width: auto;
-        margin: 0 auto; }
-    .accordion-item .accordion-toggle.active .accordion-icon p {
-      transform: rotate(45deg); }
-  .accordion-item .accordion-content {
+        width: 100%;
+        height: auto; }
+        .accordions .accordions-container .accordion-item .accordion-toggle .accordion-icon svg path {
+          fill: none;
+          stroke: #0C0C0C;
+          stroke-width: 2px; }
+    .accordions .accordions-container .accordion-item .accordion-toggle.active .accordion-icon svg {
+      transform: rotate(180deg); }
+  .accordions .accordions-container .accordion-item .accordion-content {
     display: none;
-    width: 100%;
-    padding: 10px 30px 40px 30px;
-    margin: 0 auto;
-    background-color: #F5F5F5; }
-    .accordion-item .accordion-content p {
-      max-width: 80%;
-      margin: 0 auto; }
+    padding: 30px 0;
+    border-top: 2px solid #227272;
+    margin: 0 30px; }
+  .accordions[data-bg="0C0C0C"] .accordions-container {
+    color: #FFF; }
+    .accordions[data-bg="0C0C0C"] .accordions-container .accordion-item .accordion-toggle {
+      border-top: 1px dotted #FFF; }
+      .accordions[data-bg="0C0C0C"] .accordions-container .accordion-item .accordion-toggle .accordion-icon svg path {
+        stroke: #FFF; }
 
 .error-container {
   height: 100vh; }

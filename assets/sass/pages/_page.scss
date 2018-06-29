@@ -60,6 +60,16 @@
 			align-items: flex-end;
 			justify-content: center;
 			margin-bottom: 3.5%;
+			@include breakpoint($breakPoint1) {
+				width: 48%;
+				height: 41vw;
+				max-height: 100%;
+				margin-bottom: 30px;
+			}
+			@include breakpoint($breakPoint2) {
+				width: 100%;
+				height: 85vw;
+			}
 			.gallery-grid-caption{
 				width: 100%;
 				background: rgba(0,0,0,0.6);
@@ -68,6 +78,7 @@
 					color: #FFF;
 					*{
 						margin-bottom: 0;
+						color: #FFF;
 					}
 				}
 			}
@@ -96,6 +107,7 @@
 			justify-content: center;
 			@include breakpoint($breakPoint2) {
 				width: 100%;
+				margin-bottom: 20px;
 			}
 			div{
 				display: block;
@@ -142,6 +154,9 @@
 			display: flex;
 			align-items: stretch;
 			justify-content: center;
+			@include breakpoint($breakPoint2) {
+				flex-wrap: wrap;
+			}
 			&:nth-of-type(even){
 				flex-direction: row-reverse;
 			}
@@ -150,6 +165,9 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				@include breakpoint($breakPoint2) {
+					width: 100%;
+				}
 				.alternating-content-text-container{
 					width: 85%;
 					margin: 0 auto;
@@ -159,6 +177,12 @@
 			.alternating-content-image{
 				width: 50%;
 				min-height: 400px;
+				@include breakpoint($breakPoint2) {
+					width: 100%;
+				}
+				@include breakpoint($breakPoint3) {
+					min-height: 250px;
+				}
 			}
 		}
 	}
@@ -179,10 +203,11 @@
 		display: flex;
 		align-items: stretch;
 		justify-content: center;
+		flex-wrap: wrap;
 		.image-nav-item{
 			outline: 2px solid #FFF;
 			outline-offset: -10px;
-			width: 100%;
+			width: 25%;
 			height: 25vw;
 			max-height: 400px;
 			display: flex;
@@ -190,6 +215,14 @@
 			justify-content: center;
 			transition: all 0.3s ease;
 			text-decoration: none;
+			@include breakpoint($breakPoint2) {
+				width: 50%;
+				height: 50vw;
+			}
+			@include breakpoint($breakPoint3) {
+				width: 100%;
+				height: 100vw;
+			}
 			&:hover{
 				outline-offset: -20px;
 				h3{
@@ -214,6 +247,9 @@
 		display: flex;
 		align-items: stretch;
 		justify-content: space-between;
+		@include breakpoint($breakPoint3) {
+			flex-wrap: wrap;
+		}
 		&.reverse{
 			flex-direction: row-reverse;
 		}
@@ -222,6 +258,10 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			@include breakpoint($breakPoint3) {
+				width: 85%;
+				margin: 10px auto;
+			}
 			.text-image-text-container{
 				padding: 30px 0;
 				width: 100%;
@@ -229,6 +269,10 @@
 		}
 		.text-image-image{
 			width: 45%;
+			@include breakpoint($breakPoint3) {
+				width: 85%;
+				margin: 10px auto;
+			}
 			img{
 				width: 100%;
 				height: auto;
@@ -242,6 +286,9 @@
 	.site-cta-container{
 		max-width: 500px;
 		text-align: center;
+		@include breakpoint($breakPoint4) {
+			max-width: 100%;
+		}
 		h2{
 			
 		}
@@ -254,6 +301,9 @@
 					display: flex;
 					align-items: stretch;
 					justify-content: center;
+					@include breakpoint($breakPoint4) {
+						flex-wrap: wrap;
+					}
 					.email{
 						width: 100%;
 						background-color: #FFF;
@@ -262,14 +312,22 @@
 						margin-right: 5px;
 						font-size: $fontsizeP;
 						text-align: left;
+						@include breakpoint($breakPoint4) {
+							margin-bottom: 10px;
+						}
 					}
 					.clear{
 						flex-shrink: 0;
 						display: flex;
 						align-items: stretch;
 						justify-content: center;
+						@include breakpoint($breakPoint4) {
+							flex-shrink: 1;
+							width: 100%;
+						}
 						.grif-button{
-							
+							max-width: 100%;
+							width: 100%;
 						}
 					}
 				}
@@ -425,83 +483,90 @@
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.accordion-item{
-	margin-bottom: 30px;
-	.accordion-toggle{
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		background-color: $lgray;
-		h3{
-			width: 100%;
-			margin-bottom: 0;
-			padding: 0 30px;
-			line-height: 0.9em;
-			text-transform: uppercase;
-			color: #000;
-			font-size: 22px;
+.accordions{
+	padding: 50px 0;
+	.accordions-container{
+		.accordions-intro{
+			
 		}
-		.accordion-icon{
-			background-color: $primary;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-shrink: 0;
-			width: 70px;
-			height: 70px;
-			text-align: center;
-			p{
-				color: #FFF;
-				font-size: 50px;
-				transition: all 0.3s ease;
-				transform-origin: 50% 50%;
-				display: inline-block;
-				font-weight: 200;
-				text-align: center;
-				width: auto;
-				margin: 0 auto;
+		.accordion-item{
+			&:first-of-type{
+				.accordion-toggle{
+					border-top: none;
+				}
+			}
+			.accordion-toggle{
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 30px;
+				border-top: 1px dotted $textPrimary;
+				@include breakpoint($breakPoint2) {
+					padding: 20px;
+				}
+				h4{
+					width: 100%;
+					margin-bottom: 0;
+					line-height: 0.9em;
+					padding-right: 15px;
+				}
+				.accordion-icon{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-shrink: 0;
+					width: 50px;
+					height: 50px;
+					@include breakpoint($breakPoint2) {
+						width: 20px;
+						height: 20px;
+					}
+					svg{
+						transition: all 0.3s ease;
+						transform-origin: 50% 50%;
+						width: 100%;
+						height: auto;
+						path{
+							fill: none; 
+							stroke: $textPrimary; 
+							stroke-width: 2px;
+						}
+					}
+				}
+				&:not(.active){
+				}
+				&.active{
+					.accordion-icon{
+						svg{
+							transform: rotate(180deg);
+						}
+					}
+				}
+			}
+			.accordion-content{
+				display: none;
+				padding: 30px 0;
+				border-top: 2px solid $primary;
+				margin: 0 30px;
 			}
 		}
-		&:not(.active){
-		}
-		&.active{
-			.accordion-icon{
-				p{
-					transform: rotate(45deg);
+	}
+	&[data-bg="0C0C0C"]{
+		.accordions-container{
+			color: #FFF;
+			.accordion-item{
+				.accordion-toggle{
+					border-top: 1px dotted #FFF;
+					.accordion-icon{
+						svg{
+							path{
+								stroke: #FFF; 
+							}
+						}
+					}
 				}
 			}
 		}
 	}
-	.accordion-content{
-		display: none;
-		width: 100%;
-		padding: 10px 30px 40px 30px;
-		margin: 0 auto;
-		background-color: $lgray;
-		p{
-			max-width: 80%;
-			margin: 0 auto;
-		}
-	}
 }
-
-
-
-

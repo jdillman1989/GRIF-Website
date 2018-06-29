@@ -73,6 +73,9 @@ h2, .h-two{
 	font-weight: 400;
 	text-transform: uppercase;
 	margin-bottom: 0.6em;
+	@include breakpoint($breakPoint3) {
+		font-size: $fontsizeH3;
+	}
 }
 
 h1{
