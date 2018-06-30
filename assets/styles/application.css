@@ -822,6 +822,9 @@ input, textarea, button {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap; }
+    @media only screen and (max-width: 760px) {
+      .news-filters .news-filters-container {
+        width: 100%; } }
     .news-filters .news-filters-container .news-tax-nav {
       display: flex;
       align-items: center;
@@ -829,7 +832,7 @@ input, textarea, button {
       padding: 15px 0 15px 30px; }
       @media only screen and (max-width: 760px) {
         .news-filters .news-filters-container .news-tax-nav {
-          width: calc(100% - 81px); } }
+          width: calc(100% - 60px); } }
       .news-filters .news-filters-container .news-tax-nav .news-tax {
         display: flex;
         align-items: center;
@@ -844,9 +847,19 @@ input, textarea, button {
           cursor: pointer;
           margin-bottom: 0;
           color: #FFF;
-          text-transform: uppercase; }
+          text-transform: uppercase;
+          line-height: 1em; }
+          @media only screen and (max-width: 760px) {
+            .news-filters .news-filters-container .news-tax-nav .news-tax p {
+              font-size: 11px;
+              display: none; } }
           .news-filters .news-filters-container .news-tax-nav .news-tax p.news-tax-label {
             margin-left: 20px; }
+            @media only screen and (max-width: 760px) {
+              .news-filters .news-filters-container .news-tax-nav .news-tax p.news-tax-label {
+                display: block;
+                margin-left: 0;
+                margin-right: 15px; } }
             .news-filters .news-filters-container .news-tax-nav .news-tax p.news-tax-label:after {
               display: inline-block;
               content: ' ∨';
@@ -858,6 +871,9 @@ input, textarea, button {
           display: block;
           background-color: #E9EBEC;
           width: 280px; }
+          @media only screen and (max-width: 760px) {
+            .news-filters .news-filters-container .news-tax-nav .news-tax ul {
+              width: 200px; } }
           .news-filters .news-filters-container .news-tax-nav .news-tax ul li {
             list-style: none;
             margin-bottom: 0;

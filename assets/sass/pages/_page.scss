@@ -337,20 +337,23 @@
 }
 
 .news-filters{
-	margin: 30px 0; 
+	margin: 30px 0;
 	.news-filters-container{
 		background-color: $primary;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
+		@include breakpoint($breakPoint3) {
+			width: 100%;
+		}
 		.news-tax-nav{
 			display: flex;
 			align-items: center;
 			justify-content: flex-start;
 			padding: 15px 0 15px 30px;
 			@include breakpoint($breakPoint3) {
-				width: calc(100% - 81px); 
+				width: calc(100% - 60px); 
 			}
 			.news-tax{
 				display: flex;
@@ -368,8 +371,18 @@
 					margin-bottom: 0;
 					color: #FFF;
 					text-transform: uppercase;
+					line-height: 1em;
+					@include breakpoint($breakPoint3) {
+						font-size: 11px;
+						display: none;
+					}
 					&.news-tax-label{
 						margin-left: 20px;
+						@include breakpoint($breakPoint3) {
+							display: block;
+							margin-left: 0;
+							margin-right: 15px;
+						}
 						&:after{
 							display: inline-block;
 							content: ' ∨';
@@ -383,7 +396,10 @@
 				ul{
 					display: block;
 					background-color: $secondary;
-					width: 280px;  
+					width: 280px;
+					@include breakpoint($breakPoint3) {
+						width: 200px;
+					}  
 					li{
 						list-style: none;
 						margin-bottom: 0;
@@ -480,6 +496,9 @@
 	padding: 70px 0;
 	.archive-heading{
 		text-align: center;
+	}
+	.cards{
+		
 	}
 }
 
