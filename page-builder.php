@@ -1,4 +1,7 @@
 <?php
+/*
+* Template Name: Page Builder
+*/
 class Default_Page extends Core_Template {
 
 	public function fields() {
