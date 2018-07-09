@@ -10,13 +10,6 @@ $group_args = [
 	            'value' => 'default'
 	        ],
 	    ],
-	    [
-	        [
-	            'param' => 'page_template',
-	            'operator' => '==',
-	            'value' => 'page-builder.php'
-	        ],
-	    ],
 	],
 	'hide_on_screen' => ['the_content']
 ];
