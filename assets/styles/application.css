@@ -564,6 +564,12 @@ input, textarea, button {
     color: #FFF;
     width: 85%;
     text-align: center; }
+    .hero .hero-container audio {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 30px auto;
+      max-width: 700px; }
     .hero .hero-container p {
       font-size: 26px;
       margin-bottom: 0; }

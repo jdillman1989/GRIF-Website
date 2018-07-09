@@ -10,6 +10,27 @@ $group_args = [
 	            'value' => 'default'
 	        ],
 	    ],
+	    [
+	        [
+	            'param' => 'page_template',
+	            'operator' => '==',
+	            'value' => 'page-sermon-archive.php'
+	        ],
+	    ],
+	    [
+	        [
+	            'param' => 'post_type',
+	            'operator' => '==',
+	            'value' => 'sermons'
+	        ],
+	    ],
+	    [
+	        [
+	            'param' => 'post_type',
+	            'operator' => '==',
+	            'value' => 'events'
+	        ],
+	    ],
 	],
 	'hide_on_screen' => ['the_content']
 ];

@@ -2,6 +2,23 @@
 {% block content %}
 
 <main class="page-builder">
+	{% if single.is %}
+		<section class="hero" style="
+			background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url({{ single.background_image.url }});
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+		" alt="{{ single.background_image.alt }}">
+			<div class="hero-container">
+				<h1>{{ single.title }}</h1>
+				{% if single.file %}
+					<audio controls><source src="{{ single.file }}" type="audio/mpeg">Your browser does not support audio</audio>
+				{% endif %}
+				<p>{{ single.display_date }}<br>{{ single.description }}</p>
+			</div>
+		</section>
+	{% endif %}
+
 	{% for layout in fields %}
 
 		{% if layout.acf_fc_layout == "hero" %}
