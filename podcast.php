@@ -54,7 +54,7 @@ foreach ($posts as $this_post) {
 		</itunes:owner>
 		<itunes:explicit>no</itunes:explicit>
 		<itunes:image href="<?php echo $root; ?>/assets/images/grif-podcast.jpg"></itunes:image>
-		<itunes:category text="Christianity"></itunes:category>
+		<itunes:category text="Religion &amp; Spirituality"></itunes:category>
 		<?php echo $episodes; ?>
 	</channel>
 </rss>
