@@ -27,6 +27,11 @@
 			margin-top: 50px;
 			.grif-button{
 				margin: 0 10px;
+				@include breakpoint($breakPoint3) {
+					display: block;
+					margin: 0;
+					margin-bottom: 15px;
+				}
 			}
 		}
 	}
@@ -47,13 +52,26 @@
 				align-items: center;
 				justify-content: center;
 				text-transform: none;
+				@include breakpoint($breakPoint3) {
+					display: block;
+				}
 				span{
 					display: inline-block;
 					margin-right: 20px;
+					@include breakpoint($breakPoint3) {
+						display: block;
+						margin-right: 0;
+						margin-bottom: 15px;
+					}
 				}
 				a{
 					display: inline-block;
 					margin: 0 13px;
+					@include breakpoint($breakPoint3) {
+						display: block;
+						margin: 0;
+						margin-bottom: 15px;
+					}
 					svg{
 						height: 35px;
 						width: auto;
