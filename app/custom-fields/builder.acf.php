@@ -323,6 +323,15 @@ $fields = [
 					]
 				],
 				[
+					'Podcast Promo',
+					[
+						'layout' => 'block',
+						'sub_fields' => [
+							['message', '', ['message' => 'This automatically displays buttons for the iTunes and Google Play GRIF Sermon Podcast.']],
+						]
+					]
+				],
+				[
 					'Current Sermon Series',
 					[
 						'layout' => 'block',

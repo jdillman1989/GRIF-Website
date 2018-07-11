@@ -312,6 +312,13 @@
 				</div>
 			</section>
 
+		{% elseif layout.acf_fc_layout == "podcast_promo" %}
+			<section class="basic-text single-info" style="background-color: #E9EBEC;">
+				<div class="basic-text-container grif-container">
+					<h4><span>Listen on:</span> <a href="https://itunes.apple.com/us/podcast/grif-sermon-series/id1409863994" target="_blank">{{ layout.itunes_button }}</a> <a href="#" target="_blank">{{ layout.google_button }}</a></h4>
+				</div>
+			</section>
+
 		{% endif %}
 	{% endfor %}
 </main>

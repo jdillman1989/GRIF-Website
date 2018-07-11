@@ -281,7 +281,7 @@ class Default_Page extends Core_Template {
 		}
 
 		return $return;
-	}	
+	}
 
 	public function fields() {
 
@@ -381,6 +381,23 @@ class Default_Page extends Core_Template {
 						'bg_color' => $field['background_color'],
 						'heading' => $field['heading'],
 						'posts' => $recent_posts,
+					);
+					break;
+
+				case 'podcast_promo':
+					ob_start();
+					include 'assets/svg/itunes.svg';
+					$itunes_button = ob_get_contents();
+					ob_end_clean();
+
+					ob_start();
+					include 'assets/svg/google-play.svg';
+					$google_button = ob_get_contents();
+					ob_end_clean();
+
+					$return[] = array(
+						'google_button' => $google_button,
+						'itunes_button' => $itunes_button,
 					);
 					break;
 
