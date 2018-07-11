@@ -53,13 +53,15 @@
 				justify-content: center;
 				text-transform: none;
 				@include breakpoint($breakPoint3) {
-					display: block;
+					flex-wrap: wrap;
+					text-align: center;
 				}
 				span{
 					display: inline-block;
 					margin-right: 20px;
 					@include breakpoint($breakPoint3) {
 						display: block;
+						width: 100%;
 						margin-right: 0;
 						margin-bottom: 15px;
 					}
@@ -69,6 +71,7 @@
 					margin: 0 13px;
 					@include breakpoint($breakPoint3) {
 						display: block;
+						width: 100%;
 						margin: 0;
 						margin-bottom: 15px;
 					}

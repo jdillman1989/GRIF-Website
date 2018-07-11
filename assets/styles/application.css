@@ -593,13 +593,15 @@ input, textarea, button {
       text-transform: none; }
       @media only screen and (max-width: 760px) {
         .basic-text.single-info .basic-text-container h4 {
-          display: block; } }
+          flex-wrap: wrap;
+          text-align: center; } }
       .basic-text.single-info .basic-text-container h4 span {
         display: inline-block;
         margin-right: 20px; }
         @media only screen and (max-width: 760px) {
           .basic-text.single-info .basic-text-container h4 span {
             display: block;
+            width: 100%;
             margin-right: 0;
             margin-bottom: 15px; } }
       .basic-text.single-info .basic-text-container h4 a {
@@ -608,6 +610,7 @@ input, textarea, button {
         @media only screen and (max-width: 760px) {
           .basic-text.single-info .basic-text-container h4 a {
             display: block;
+            width: 100%;
             margin: 0;
             margin-bottom: 15px; } }
         .basic-text.single-info .basic-text-container h4 a svg {
