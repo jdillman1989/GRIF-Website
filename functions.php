@@ -396,6 +396,7 @@ class Default_Page extends Core_Template {
 					ob_end_clean();
 
 					$return[] = array(
+						'acf_fc_layout' => $field['acf_fc_layout'],
 						'google_button' => $google_button,
 						'itunes_button' => $itunes_button,
 					);
