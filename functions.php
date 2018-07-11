@@ -258,13 +258,13 @@ class Default_Page extends Core_Template {
 				$prev_button = '<a href="#" class="grif-button white disabled">Previous Service &rarr;</a>';
 				$next_button = '<a href="#" class="grif-button white disabled">&larr; Next Service</a>';
 
-				if ($prev_id) {
-					$prev_permalink = get_permalink($prev_id);
-					$prev_button = '<a href="'.$prev_permalink.'" class="grif-button white">Previous Service &rarr;</a>';
-				}
 				if ($next_id) {
 					$next_permalink = get_permalink($next_id);
-					$next_button = '<a href="'.$next_permalink.'" class="grif-button white">&larr; Next Service</a>';
+					$next_button = '<a href="'.$next_permalink.'" class="grif-button white">Previous Service &rarr;</a>';
+				}
+				if ($prev_id) {
+					$prev_permalink = get_permalink($prev_id);
+					$prev_button = '<a href="'.$prev_permalink.'" class="grif-button white">&larr; Next Service</a>';
 				}
 
 				$return['file'] = get_field('sermon_audio', $this->obj_id);
