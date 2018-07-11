@@ -560,7 +560,8 @@ input, textarea, button {
   .hero .hero-container {
     color: #FFF;
     width: 85%;
-    text-align: center; }
+    text-align: center;
+    padding: 40px 0; }
     .hero .hero-container audio {
       display: block;
       width: 100%;
@@ -581,6 +582,8 @@ input, textarea, button {
             display: block;
             margin: 0;
             margin-bottom: 15px; } }
+  .hero.single-hero {
+    height: auto; }
 
 .basic-text {
   padding: 50px 0 30px 0; }
