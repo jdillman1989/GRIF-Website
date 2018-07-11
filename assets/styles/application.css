@@ -576,6 +576,11 @@ input, textarea, button {
       margin-top: 50px; }
       .hero .hero-container .post-nav .grif-button {
         margin: 0 10px; }
+        @media only screen and (max-width: 760px) {
+          .hero .hero-container .post-nav .grif-button {
+            display: block;
+            margin: 0;
+            margin-bottom: 15px; } }
 
 .basic-text {
   padding: 50px 0 30px 0; }
@@ -586,12 +591,25 @@ input, textarea, button {
       align-items: center;
       justify-content: center;
       text-transform: none; }
+      @media only screen and (max-width: 760px) {
+        .basic-text.single-info .basic-text-container h4 {
+          display: block; } }
       .basic-text.single-info .basic-text-container h4 span {
         display: inline-block;
         margin-right: 20px; }
+        @media only screen and (max-width: 760px) {
+          .basic-text.single-info .basic-text-container h4 span {
+            display: block;
+            margin-right: 0;
+            margin-bottom: 15px; } }
       .basic-text.single-info .basic-text-container h4 a {
         display: inline-block;
         margin: 0 13px; }
+        @media only screen and (max-width: 760px) {
+          .basic-text.single-info .basic-text-container h4 a {
+            display: block;
+            margin: 0;
+            margin-bottom: 15px; } }
         .basic-text.single-info .basic-text-container h4 a svg {
           height: 35px;
           width: auto; }
