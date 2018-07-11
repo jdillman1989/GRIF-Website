@@ -1,5 +1,6 @@
 .hero{
-	height: 70vh;
+	min-height: 70vh;
+	height: auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -35,9 +36,6 @@
 				}
 			}
 		}
-	}
-	&.single-hero{
-		height: auto;
 	}
 }
 

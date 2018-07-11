@@ -553,7 +553,8 @@ input, textarea, button {
   padding: 0; }
 
 .hero {
-  height: 70vh;
+  min-height: 70vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -582,8 +583,6 @@ input, textarea, button {
             display: block;
             margin: 0;
             margin-bottom: 15px; } }
-  .hero.single-hero {
-    height: auto; }
 
 .basic-text {
   padding: 50px 0 30px 0; }
