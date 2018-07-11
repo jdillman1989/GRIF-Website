@@ -8,8 +8,7 @@ $group_args = [
 
 $fields = [
 	['tab', 'General Info', ['placement' => 'left']],
-	['message', '', ['message' => 'Displays in the footer and anywhere the [grif_address] shortcode is used']],
-	['textarea', 'Address'],
+	['textarea', 'Address', ['instructions' => 'Displays in the footer and anywhere the [grif_address] shortcode is used']],
 	['text', 'Main Email'],
 	['text', 'Main Phone'],
 
