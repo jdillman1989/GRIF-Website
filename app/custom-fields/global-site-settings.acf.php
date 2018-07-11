@@ -17,7 +17,7 @@ $fields = [
 	['text', 'Announcement', ['instructions' => 'Prominent message that can display above the main menu (ex: weather alerts)']],
 
 	['tab', 'Site CTA', ['placement' => 'left']],
-	// ['message', '', ['message' => 'Appears wherever the CTA content block is used']],
+	['message', '', ['message' => 'Appears wherever the CTA content block is used']],
 	['text', 'CTA Title'],
 	['text', 'CTA Description'],
 ];
