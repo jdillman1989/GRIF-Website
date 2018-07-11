@@ -31,7 +31,7 @@ export GIT_WORK_TREE=$WEBROOT/build;
 export GIT_DIR=$WEBROOT/$STAGING.git;
 git checkout -f master;
 cd $WEBROOT/build && gulp;
-rsync -r $WEBROOT/build/* $PUBLIC/wp-content/themes/grif" >> post-receive;
+rsync -r $WEBROOT/build/* $PUBLIC/wp-content/themes/$STAGING" >> post-receive;
 
 echo "Installing Gulp";
 cd $WEBROOT;

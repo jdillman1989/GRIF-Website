@@ -535,7 +535,7 @@ function all_sermons() {
 	$sermons = get_posts($sermon_args);
 	set_transient('sermon_posts', $sermons);
 }
-function update_sermon_transient($post_id, $post, $update){
+function update_sermon_transient($post_id, $post=[], $update=[]){
 	if('sermons' == get_post_type($post_id)) {
 		all_sermons();
 	}
