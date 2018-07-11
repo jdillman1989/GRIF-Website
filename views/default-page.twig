@@ -3,7 +3,7 @@
 
 <main class="page-builder">
 	{% if single.is %}
-		<section class="hero" style="
+		<section class="hero single-hero" style="
 			background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url({{ single.background_image.url }});
 			background-repeat: no-repeat;
 			background-position: center center;
@@ -15,12 +15,25 @@
 					<audio controls><source src="{{ single.file }}" type="audio/mpeg">Your browser does not support audio</audio>
 				{% endif %}
 				<p>{{ single.display_date }}<br>{{ single.description }}</p>
+				{% if single.archive %}
+					<div class="post-nav">
+						{{ single.archive.next }}
+						<a href="{{ single.archive.all }}" class="grif-button white">View All Services</a>
+						{{ single.archive.previous }}
+					</div>
+				{% endif %}
 			</div>
 		</section>
+		{% if single.podcast %}
+			<section class="basic-text single-info" style="background-color: #E9EBEC;">
+				<div class="basic-text-container grif-container">
+					<h4><span>Listen on:</span> <a href="https://itunes.apple.com/us/podcast/grif-sermon-series/id1409863994" target="_blank">{{ single.podcast.itunes_button }}</a> <a href="#" target="_blank">{{ single.podcast.google_button }}</a></h4>
+				</div>
+			</section>
+		{% endif %}
 	{% endif %}
 
 	{% for layout in fields %}
-
 		{% if layout.acf_fc_layout == "hero" %}
 			<section class="hero" style="
 				background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url({{ layout.background_image.url }});

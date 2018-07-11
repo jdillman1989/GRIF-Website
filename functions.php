@@ -229,11 +229,54 @@ class Default_Page extends Core_Template {
 				'background_image' => get_field('single_background_image', $this->obj_id),
 				'title' => get_the_title($this->obj_id),
 				'display_date' => date('M j, Y', $ts_date),
-				'description' => get_field('single_description', $this->obj_id)
+				'description' => get_field('single_description', $this->obj_id),
+				'archive' => false,
+				'file' => false,
+				'podcast' => false,
 			);
 
 			if ($type == 'sermons') {
+
+				$archives = get_posts(array(
+					'post_type' => 'page',
+					'meta_key' => '_wp_page_template',
+					'meta_value' => 'page-sermon-archive.php'
+				));
+
+				ob_start();
+				include 'assets/svg/itunes.svg';
+				$itunes_button = ob_get_contents();
+				ob_end_clean();
+
+				ob_start();
+				include 'assets/svg/google-play.svg';
+				$google_button = ob_get_contents();
+				ob_end_clean();
+
+				$prev_id = get_adjacent_sermon_id(true, $this->obj_id);
+				$next_id = get_adjacent_sermon_id(false, $this->obj_id);
+				$prev_button = '<a href="#" class="grif-button white disabled">Previous Service &rarr;</a>';
+				$next_button = '<a href="#" class="grif-button white disabled">&larr; Next Service</a>';
+
+				if ($prev_id) {
+					$prev_permalink = get_permalink($prev_id);
+					$prev_button = '<a href="'.$prev_permalink.'" class="grif-button white">Previous Service &rarr;</a>';
+				}
+				if ($next_id) {
+					$next_permalink = get_permalink($next_id);
+					$next_button = '<a href="'.$next_permalink.'" class="grif-button white">&larr; Next Service</a>';
+				}
+
 				$return['file'] = get_field('sermon_audio', $this->obj_id);
+				$return['archive'] = array(
+					'all' => get_page_link($archives[0]->ID),
+					'previous' => $prev_button,
+					'next' => $next_button,
+				);
+				$return['podcast'] = array(
+					'google_button' => $google_button,
+					'itunes_button' => $itunes_button,
+				);
 			}
 		}
 
@@ -459,7 +502,45 @@ add_action('init', 'init_podcast');
 function init_podcast(){
 	add_feed('podcast', 'podcast_rss');
 }
-
 function podcast_rss(){
 	get_template_part('podcast', 'podcast');
+}
+
+function all_sermons() {
+	$sermon_args = array(
+		'post_type' => 'sermons',
+		'numberposts' => -1,
+		'orderby' => 'meta_value',
+		'meta_key' => 'display_date',
+		'fields' => 'ids',
+	);
+	$sermons = get_posts($sermon_args);
+	set_transient('sermon_posts', $sermons);
+}
+function update_sermon_transient($post_id, $post, $update){
+	if('sermons' == get_post_type($post_id)) {
+		all_sermons();
+	}
+}
+add_action('save_post', 'update_sermon_transient');
+
+function get_adjacent_sermon_id($previous, $this_sermon){
+	$sermons = get_transient('sermon_posts');
+	if( false === $sermons ) {
+		all_sermons();
+		$sermons = get_transient( 'sermon_posts' );
+	}
+	$pos = array_search( $this_sermon, $sermons );
+	if($previous) {
+		$new_pos = $pos - 1;
+	} 
+	else {
+		$new_pos = $pos + 1;
+	}
+	if($sermons[$new_pos]){
+		return $sermons[$new_pos];
+	}
+	else{
+		return false;
+	}
 }
