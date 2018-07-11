@@ -4,7 +4,7 @@
 <main class="page-builder">
 	{% if single.is %}
 		<section class="hero single-hero" style="
-			background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url({{ single.background_image.url }});
+			background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url({{ single.background_image.url }});
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-size: cover;
@@ -36,7 +36,7 @@
 	{% for layout in fields %}
 		{% if layout.acf_fc_layout == "hero" %}
 			<section class="hero" style="
-				background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)), url({{ layout.background_image.url }});
+				background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url({{ layout.background_image.url }});
 				background-repeat: no-repeat;
 				background-position: center center;
 				background-size: cover;
