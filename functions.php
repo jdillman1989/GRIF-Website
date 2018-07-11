@@ -288,9 +288,7 @@ class Default_Page extends Core_Template {
 		$fields = get_field('builder_blocks', $this->obj_id);
 		$return = array();
 
-		var_dump(count($fields));
-
-		if (count($fields)) {
+		if (count($fields) > 1) {
 			foreach ($fields as $field) {
 				switch($field['acf_fc_layout']){
 					case 'site_cta':
