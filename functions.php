@@ -270,8 +270,8 @@ class Default_Page extends Core_Template {
 				$return['file'] = get_field('sermon_audio', $this->obj_id);
 				$return['archive'] = array(
 					'all' => get_page_link($archives[0]->ID),
-					'previous' => $prev_button,
-					'next' => $next_button,
+					'next' => $prev_button,
+					'previous' => $next_button,
 				);
 				$return['podcast'] = array(
 					'google_button' => $google_button,
