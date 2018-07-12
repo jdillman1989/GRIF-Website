@@ -6,7 +6,6 @@ include 'core/core-init.php';
 require_once('breeze.php');
 $api_key = get_field('breeze_api_key', 'option');
 $breeze = new Breeze($api_key);
-var_dump($breeze);
 
 add_theme_support('post-thumbnails');
 
@@ -550,9 +549,10 @@ function grif_content_save($post_id, $post=[], $update=[]){
 		$title = get_the_title($post_id);
 		$date = get_field('display_date', $post_id);
 		$ts_date = strtotime($date);
-
-
 		$breeze_event = $breeze->url('https://grif.breezechms.com/api/events/add?name='.urlencode($title).'&starts_on='.$ts_date);
+
+
+		
 		$event_data = json_decode($breeze_event);
 		update_field('breeze_id', $event_data->id, $post_id);
 	}
