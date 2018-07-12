@@ -566,7 +566,6 @@ input, textarea, button {
     .hero .hero-container audio {
       display: block;
       width: 100%;
-      height: auto;
       margin: 30px auto;
       max-width: 700px; }
     .hero .hero-container p {
