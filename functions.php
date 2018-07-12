@@ -4,9 +4,8 @@
 include 'core/core-init.php';
 
 require_once('breeze.php');
-$breeze = new Breeze(BREEZE);
-
-var_dump(BREEZE);
+$api_key = get_field('breeze_api_key', 'option');
+$breeze = new Breeze($api_key);
 
 add_theme_support('post-thumbnails');
 

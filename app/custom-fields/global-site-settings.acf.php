@@ -11,6 +11,7 @@ $fields = [
 	['textarea', 'Address', ['instructions' => 'Displays in the footer and anywhere the [grif_address] shortcode is used']],
 	['text', 'Main Email'],
 	['text', 'Main Phone'],
+	['password', 'Breeze API Key'],
 
 	['tab', 'Header Info', ['placement' => 'left']],
 	['text', 'Announcement', ['instructions' => 'Prominent message that can display above the main menu (ex: weather alerts)']],
