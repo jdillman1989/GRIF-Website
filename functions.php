@@ -3,7 +3,7 @@
 // Load core functionality.
 include 'core/core-init.php';
 
-require_once('breeze/breeze.php');
+require_once('breeze.php');
 $breeze = new Breeze(BREEZE);
 
 add_theme_support('post-thumbnails');
