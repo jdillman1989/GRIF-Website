@@ -11,6 +11,7 @@ $group_args = [
 	        ],
 	    ],
 	],
+	'hide_on_screen' => ['the_content']
 ];
 
 $fields = [
