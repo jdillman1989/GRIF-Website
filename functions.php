@@ -6,6 +6,8 @@ include 'core/core-init.php';
 require_once('breeze.php');
 $breeze = new Breeze(BREEZE);
 
+var_dump(BREEZE);
+
 add_theme_support('post-thumbnails');
 
 // Set up an ACF options page.
@@ -549,7 +551,6 @@ function grif_content_save($post_id, $post=[], $update=[]){
 		$date = get_field('display_date', $post_id);
 		$ts_date = strtotime($date);
 
-		var_dump($breeze);
 
 		$breeze_event = $breeze->url('https://grif.breezechms.com/api/events/add?name='.urlencode($title).'&starts_on='.$ts_date);
 		$event_data = json_decode($breeze_event);
