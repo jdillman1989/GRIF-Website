@@ -548,6 +548,9 @@ function grif_content_save($post_id, $post=[], $update=[]){
 		$title = get_the_title($post_id);
 		$date = get_field('display_date', $post_id);
 		$ts_date = strtotime($date);
+
+		var_dump($breeze);
+
 		$breeze_event = $breeze->url('https://grif.breezechms.com/api/events/add?name='.urlencode($title).'&starts_on='.$ts_date);
 		$event_data = json_decode($breeze_event);
 		update_field('breeze_id', $event_data->id, $post_id);
