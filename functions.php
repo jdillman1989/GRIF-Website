@@ -2,11 +2,7 @@
 
 // Load core functionality.
 include 'core/core-init.php';
-
 require_once('breeze.php');
-$api_key = get_field('breeze_api_key', 'option');
-$breeze = new Breeze($api_key);
-
 add_theme_support('post-thumbnails');
 
 // Set up an ACF options page.
@@ -546,17 +542,14 @@ function grif_content_save($post_id, $post=[], $update=[]){
 		all_sermons();
 	}
 	if(get_post_type($post_id) == 'events'){
+
 		$title = get_the_title($post_id);
 		$date = get_field('display_date', $post_id);
 		$ts_date = strtotime($date);
 
-
-		var_dump($breeze);
-
-
+		$api_key = get_field('breeze_api_key', 'option');
+		$breeze = new Breeze($api_key);
 		$breeze_event = $breeze->url('https://grif.breezechms.com/api/events/add?name='.urlencode($title).'&starts_on='.$ts_date);
-
-
 
 		$event_data = json_decode($breeze_event);
 		update_field('breeze_id', $event_data->id, $post_id);
@@ -570,6 +563,10 @@ function grif_content_delete($post_id, $post=[], $update=[]){
 	}
 	if(get_post_type($post_id) == 'events'){
 		$event_id = get_field('breeze_id', $post_id);
+
+		$api_key = get_field('breeze_api_key', 'option');
+		$breeze = new Breeze($api_key);
+
 		$delete_breeze = $breeze->url('https://grif.breezechms.com/api/events/delete?instance_id='.$event_id);
 	}
 }
