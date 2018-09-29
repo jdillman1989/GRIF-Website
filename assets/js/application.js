@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
 		nextLink.data('tax', currentFilter);
 
     console.log('test');
-    console.log(currentFilter);
+    console.log(nextLink);
 
 		taxonomyFilter(nextLink);
 	});
