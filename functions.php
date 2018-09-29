@@ -2,7 +2,7 @@
 
 // Load core functionality.
 include 'core/core-init.php';
-require_once('breeze.php');
+
 add_theme_support('post-thumbnails');
 
 // Set up an ACF options page.
@@ -135,15 +135,13 @@ function grif_get_data() {
 			if ($term != 'all' && $term != array('all') ) {
 				$cpt_data_args['tax_query']['relation'] = 'AND';
 				$cpt_data_args['tax_query'][] = array(
-		            'taxonomy' => $tax,
-		            'field' => 'slug',
-		            'terms' => $term
-		        );
+          'taxonomy' => $tax,
+          'field' => 'slug',
+          'terms' => $term
+		    );
 			}
 		}
 	}
-
-  var_dump($_GET);
 
 	$cpt_data = new WP_Query($cpt_data_args);
 
@@ -539,42 +537,12 @@ function all_sermons() {
 	$sermons = get_posts($sermon_args);
 	set_transient('sermon_posts', $sermons);
 }
-function grif_content_save($post_id, $post=[], $update=[]){
-	if(get_post_type($post_id) == 'sermons'){
+function update_sermon_transient($post_id, $post=[], $update=[]){
+	if('sermons' == get_post_type($post_id)) {
 		all_sermons();
 	}
-	if(get_post_type($post_id) == 'events'){
-
-		$title = get_the_title($post_id);
-		$date = get_field('display_date', $post_id);
-		$ts_date = strtotime($date);
-
-		var_dump('https://grif.breezechms.com/api/events/add?name='.urlencode($title).'&starts_on='.$ts_date);
-
-		$api_key = get_field('breeze_api_key', 'option');
-		$breeze = new Breeze($api_key);
-		$breeze_event = $breeze->url('https://grif.breezechms.com/api/events/add?name='.urlencode($title).'&starts_on='.$ts_date);
-
-		$event_data = json_decode($breeze_event);
-		update_field('breeze_id', $event_data->id, $post_id);
-	}
 }
-add_action('save_post', 'grif_content_save');
-
-function grif_content_delete($post_id, $post=[], $update=[]){
-	if(get_post_type($post_id) == 'sermons'){
-		all_sermons();
-	}
-	if(get_post_type($post_id) == 'events'){
-		$event_id = get_field('breeze_id', $post_id);
-
-		$api_key = get_field('breeze_api_key', 'option');
-		$breeze = new Breeze($api_key);
-
-		$delete_breeze = $breeze->url('https://grif.breezechms.com/api/events/delete?instance_id='.$event_id);
-	}
-}
-add_action('delete_post', 'grif_content_delete');
+add_action('save_post', 'update_sermon_transient');
 
 function get_adjacent_sermon_id($previous, $this_sermon){
 	$sermons = get_transient('sermon_posts');
@@ -596,4 +564,3 @@ function get_adjacent_sermon_id($previous, $this_sermon){
 		return false;
 	}
 }
-
