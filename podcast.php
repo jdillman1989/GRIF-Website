@@ -8,7 +8,7 @@ $root = get_template_directory_uri();
 
 $args = array(
 	'post_type' => 'sermons',
-	'numberposts' => 10,
+	'numberposts' => -1,
 	'orderby' => 'meta_value',
 	'meta_key' => 'display_date',
 );

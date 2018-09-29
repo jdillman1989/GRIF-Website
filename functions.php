@@ -143,6 +143,8 @@ function grif_get_data() {
 		}
 	}
 
+  var_dump($cpt_data_args);
+
 	$cpt_data = new WP_Query($cpt_data_args);
 
 	$cpt_results = array();
