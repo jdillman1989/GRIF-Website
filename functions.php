@@ -461,7 +461,7 @@ class Default_Page extends Core_Template {
 											.'data-next="'.$next.'" '
 											.'data-ppp="'.$ppp.'" '
 											.'data-max="'.$resources->max_num_pages.'" '
-											.'data-tax="'.$tax_pag_data.'" '
+											.'data-tax=\''.$tax_pag_data.'\' '
 											.'data-type="'.$field['content_type'].'" '
 											.'data-action="'.$admin_ajax.'?action=grif_data" '
 											.'class="next-link grif-button '.$next_link_disabled.'">'
