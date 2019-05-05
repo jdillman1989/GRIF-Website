@@ -25,9 +25,9 @@ foreach ($posts as $this_post) {
 	$permalink = get_permalink($this_post->ID);
 
 	$episodes .= '<item>'
-					.'<title>'.$this_post->post_title.'</title>'
-					.'<itunes:summary>'.$description.'</itunes:summary>'
-					.'<description>'.$description.'</description>'
+					.'<title><![CDATA['.$this_post->post_title.']]></title>'
+					.'<itunes:summary><![CDATA['.$description.']]></itunes:summary>'
+					.'<description><![CDATA['.$description.']]></description>'
 					.'<link>'.$permalink.'</link>'
 					.'<enclosure url="'.$audio.'" type="audio/mpeg" length="1024"></enclosure>'
 					.'<pubDate>'.date('r', $ts_date).'</pubDate>'
@@ -37,8 +37,8 @@ foreach ($posts as $this_post) {
 					.'<guid>'.$this_post->ID.'</guid>'
 				.'</item>';
 }
+echo '<?xml version="1.0" encoding="UTF-8"?>';
 ?>
-<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 	<channel>
 		<title><?php echo $title; ?> Sermon Series</title>
